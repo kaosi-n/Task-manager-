@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function completed({ tasks }) {
+export default function completed({ tasks, setTasks }) {
+  function deleteTask(index) {
+    const updatedTasks = tasks.filter((element, i) => i !== index);
+    setTasks(updatedTasks);
+  }
   return (
     <div>
       <div>

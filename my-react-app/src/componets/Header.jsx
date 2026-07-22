@@ -4,10 +4,11 @@ import MainCon from "./MainCon";
 import { useState } from "react";
 
 export default function Header({ tasks, setTasks }) {
-  //   const userName = window.prompt("Enter user name");
-  //   if (userName === null) {
-  //     userName = "FRIEND";
-  //   }
+  // let userName = window.prompt("Enter your name");
+
+  // if (userName === null || userName.trim() === "") {
+  //   userName = "FRIEND";
+  // }
   // {userName.toUpperCase()}
 
   const [title, setTitle] = useState("");
@@ -25,6 +26,10 @@ export default function Header({ tasks, setTasks }) {
   }
 
   function handleAddTask() {
+    if (title.trim() === "") {
+      alert("Please fill in all required fields.");
+      return;
+    }
     const newTask = {
       title: title,
       description: description,
@@ -41,6 +46,7 @@ export default function Header({ tasks, setTasks }) {
     setPriority("");
     setDueDate("");
     setTime("");
+    setToggle(false);
   }
 
   return (
@@ -103,23 +109,16 @@ export default function Header({ tasks, setTasks }) {
             <button className="cancelBtn" onClick={handleToggleOff}>
               Cancel
             </button>
-            <button
-              className="addBtn"
-              onClick={() => {
-                handleAddTask();
-                handleToggleOff();
-              }}
-            >
+            <button className="addBtn" onClick={handleAddTask}>
               Add Task
             </button>
           </div>
         </div>
       </div>
-      <div className="hello">HELLO, !</div>
+      <div className="hello">HELLO, FRIEND!</div>
       <button className="addbtn box">
         <i className="bi bi-plus-circle-fill" onClick={handleTaskToggle}></i>
       </button>
     </div>
   );
 }
-export let data = ["go to work", "eat food", "take a shower"];

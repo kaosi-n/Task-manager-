@@ -9,7 +9,6 @@ import Alltask from "./pages/Alltask";
 import Pending from "./pages/Pending";
 import Completed from "./pages/Completed";
 import Overdue from "./pages/Overdue";
-import { data } from "./Header";
 
 export default function FullBody() {
   const [tasks, setTasks] = useState([
@@ -50,10 +49,10 @@ export default function FullBody() {
 
   const today = new Date();
   const year = today.getFullYear();
-  const month = today.getMonth() + 1;
-  const day = today.getDate();
-  const hour = today.getHours();
-  const minutes = today.getMinutes();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  const hour = String(today.getHours()).padStart(2, "0");
+  const minutes = String(today.getMinutes()).padStart(2, "0");
   const date = `${year}-${month}-${day}`;
   const time = `${hour}:${minutes}`;
 
@@ -78,12 +77,18 @@ export default function FullBody() {
               path="/Alltasks"
               element={<Alltask tasks={tasks} setTasks={setTasks} />}
             />
-            <Route path="/Pending" element={<Pending tasks={pendingTask} />} />
+            <Route
+              path="/Pending"
+              element={<Pending tasks={pendingTask} setTasks={setTasks} />}
+            />
             <Route
               path="/Completed"
-              element={<Completed tasks={completedTask} />}
+              element={<Completed tasks={completedTask} setTasks={setTasks} />}
             />
-            <Route path="/Overdue" element={<Overdue tasks={overdueTask} />} />
+            <Route
+              path="/Overdue"
+              element={<Overdue tasks={overdueTask} setTasks={setTasks} />}
+            />
           </Routes>
         </div>
       </div>

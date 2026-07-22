@@ -6,7 +6,6 @@ import Dashboard from "./Dashboard";
 import { Chart as ChartJS, defaults } from "chart.js/auto";
 import { Bar, Doughnut, Line } from "react-chartjs-2";
 import { ArcElement, Tooltip, Legend } from "chart.js";
-import { data } from "./Header";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -48,10 +47,10 @@ export default function MainCon({ tasks, setTasks }) {
 
   const today = new Date();
   const year = today.getFullYear();
-  const month = today.getMonth() + 1;
-  const day = today.getDate();
-  const hour = today.getHours();
-  const minutes = today.getMinutes();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  const hour = String(today.getHours()).padStart(2, "0");
+  const minutes = String(today.getMinutes()).padStart(2, "0");
   const date = `${year}-${month}-${day}`;
   const time = `${hour}:${minutes}`;
   const overDueCount = tasks.filter(
@@ -61,6 +60,11 @@ export default function MainCon({ tasks, setTasks }) {
   ).length;
 
   const todaysTaskCount = tasks.filter((task) => task.dueDate === date).length;
+  const upcomingTasks = tasks.filter(
+    (task) =>
+      task.dueDate > date ||
+      (task.dueDate === date && task.time > time && !task.checked),
+  );
 
   return (
     <div>
@@ -141,11 +145,17 @@ export default function MainCon({ tasks, setTasks }) {
               </div>
             </div>
           </div>
-          <div
-            style={{ fontSize: "1.2em", fontWeight: "bold" }}
-            className="box2-1 grid3"
-          >
-            upcoming
+          <div className="box2-1 grid3">
+            <div style={{ fontSize: "1.2em", fontWeight: "bold" }}>
+              upcoming
+            </div>
+            <div>
+              {upcomingTasks.map((task, index) => (
+                <p className="upcoming-tasks" key={index}>
+                  {task.title}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
         <div className="box-3 grid">
