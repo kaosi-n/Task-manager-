@@ -18,22 +18,34 @@ export default function SideBar() {
     },
   ];
   const [active, setActive] = useState(0);
-
+  const [showSidebar, setShowSidebar] = useState(true);
+  function toggleSidebar() {
+    setShowSidebar((prev) => !prev);
+  }
   return (
-    <div className="sidebar">
-      <div className="text">TaskMaster</div>
-      <div className="links-list">
-        {links.map((link, index) => (
-          <Link
-            key={index}
-            to={link.path}
-            className={active === index ? "cat active" : "cat"}
-            onClick={() => setActive(index)}
-          >
-            <i className={link.class}></i>
-            <span>{link.name}</span>
-          </Link>
-        ))}
+    <div className="whole">
+      <button className="menu" onClick={toggleSidebar}>
+        <i class="bi bi-three-dots-vertical"></i>
+      </button>
+      <div
+        className={
+          showSidebar ? "sidebar sidebar-open" : "sidebar sidebar-closed"
+        }
+      >
+        <div className="text">TaskMaster</div>
+        <div className="links-list">
+          {links.map((link, index) => (
+            <Link
+              key={index}
+              to={link.path}
+              className={active === index ? "cat active" : "cat"}
+              onClick={() => setActive(index)}
+            >
+              <i className={link.class}></i>
+              <span>{link.name}</span>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -278,9 +278,14 @@ body{
 
 
 /* =============sidebar================= */
+.whole{
+    display: flex;
+    flex-direction: column;
+}
 .sidebar{
     background-color: #e4dad8;
     width: 200px;
+    flex: 1;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -416,3 +421,43 @@ body{
         height: 800px;
     }
 } */
+.menu{
+    border: none;
+    color: #694559;
+    font-size: 1.5em;
+    background-color: #f3eae1;
+    margin-top: 20px;
+    display: none;
+}
+.sidebar-closed{
+    display: none;
+}
+.sidebar-open{
+    display: block;
+}
+@media (max-width: 520px){
+    .menu{
+        display: block;
+    }
+    .sidebar{
+        position: absolute;
+        top: 80px;
+        width: 300px;
+        z-index: 4;
+    }
+    .text{
+        margin-bottom: 40px;
+    }
+    .tOspan{
+        display: flex;
+        flex-direction: column;
+        margin: 0px;
+        padding: 0px;
+    }
+    .box-4 ul{
+        padding: 0px;
+    }
+    .listIcon{
+        position: static;
+    }
+}
