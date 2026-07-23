@@ -102,9 +102,9 @@ export default function Header({ tasks, setTasks }) {
             value={time}
             onChange={(e) => setTime(e.target.value)}
           />
-          <label htmlFor="reminderTime">Reminder Time</label>
+          {/* <label htmlFor="reminderTime">Reminder Time</label>
           <input type="date" />
-          <input type="time" />
+          <input type="time" /> */}
           <div className="taskBtn">
             <button className="cancelBtn" onClick={handleToggleOff}>
               Cancel

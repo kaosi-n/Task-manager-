@@ -12,37 +12,37 @@ import Overdue from "./pages/Overdue";
 
 export default function FullBody() {
   const [tasks, setTasks] = useState([
-    {
-      title: "Add greenery",
-      description:
-        "Use lots of eucalyptus, ruscus, fern, or other leafy greens around",
-      priority: "Normal",
-      dueDate: "2027-1-1",
-      time: "10:47",
-    },
-    {
-      title: "Use a spiral hand-tied style",
-      description:
-        "This spreads them outward and increases the bouquets width.This spreads them outward and increases the bouquets width.This spreads them outward and increases the bouquets width.This spreads them outward and increases the bouquets width.",
-      priority: "Medium",
-      dueDate: "2026-11-18",
-      time: "10:47",
-    },
-    {
-      title: "Huion",
-      description:
-        "18.4 Screen with 4K UHD Resolution, Dual Pen Powered by PenTech 4.0, Anti-sparkle Surface, 10 Points Finger Touch.",
-      priority: "Medium",
-      dueDate: "2021-6-11",
-      time: "10:47",
-    },
-    {
-      title: "Wrap it generously",
-      description: "",
-      priority: "High",
-      dueDate: "2008-4-24",
-      time: "10:47",
-    },
+    // {
+    //   title: "Add greenery",
+    //   description:
+    //     "Use lots of eucalyptus, ruscus, fern, or other leafy greens around",
+    //   priority: "Normal",
+    //   dueDate: "2027-1-1",
+    //   time: "10:47",
+    // },
+    // {
+    //   title: "Use a spiral hand-tied style",
+    //   description:
+    //     "This spreads them outward and increases the bouquets width.This spreads them outward and increases the bouquets width.This spreads them outward and increases the bouquets width.This spreads them outward and increases the bouquets width.",
+    //   priority: "Medium",
+    //   dueDate: "2026-11-18",
+    //   time: "10:47",
+    // },
+    // {
+    //   title: "Huion",
+    //   description:
+    //     "18.4 Screen with 4K UHD Resolution, Dual Pen Powered by PenTech 4.0, Anti-sparkle Surface, 10 Points Finger Touch.",
+    //   priority: "Medium",
+    //   dueDate: "2021-6-11",
+    //   time: "10:47",
+    // },
+    // {
+    //   title: "Wrap it generously",
+    //   description: "",
+    //   priority: "High",
+    //   dueDate: "2008-4-24",
+    //   time: "10:47",
+    // },
   ]);
   const completedTask = tasks.filter((task) => task.checked === true);
   const pendingTask = tasks.filter((task) => task.checked !== true);
