@@ -383,7 +383,6 @@ body{
 }
 .done{
     border-radius: 0px;
-    background-color: ;
 }
 
 .tcolor{
@@ -438,6 +437,12 @@ body{
 @media (max-width: 520px){
     .menu{
         display: block;
+    }
+    .main{
+        padding: 15px;
+    }
+    .grid2 i{
+        top: 45px;
     }
     .sidebar{
         position: absolute;
